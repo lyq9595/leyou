@@ -1,0 +1,57 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: leyou-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+    registry-fetch-interval-seconds: 5 # 拉取服务间隔
+
+zuul:
+  prefix: /api
+  routes:
+    item-service: /item/** # 路由到商品的微服务
+    search-service: /search/** # 路由到搜索微服务
+    user-service: /user/** # 路由到用户微服务
+    auth-service: /auth/** # 路由到授权微服务
+    cart-service: /cart/** # 路由到购物车微服务
+    order-service: /order/** # 路由到购物车微服务
+  host:
+    connect-timeout-millis: 3000
+    socket-timeout-millis: 3000
+  add-host-header: true
+  sensitive-headers: # 覆盖默认敏感头部信息  前面已经把nginx和add-host-header设置过了
+
+leyou:
+  jwt:
+    pubKeyPath: G:\IdeaProjects\temp\rsa\\rsa.pub # 公钥地址
+    cookieName: LY_TOKEN
+  # 域名白名单 所有的微服务都是通过网关的 网关里面有一个关于cookie的过滤器 这些服务绕过去
+  filter:
+    allowPaths:
+      - /api/auth
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 7000
+
+
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+
+
+
+

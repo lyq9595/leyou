@@ -1,0 +1,38 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mysql:///leyou
+    username: root
+    password: 550798
+  application:
+    name: service-provider
+
+mybatis:
+  type-aliases-package: cn.itcast.service.pojo
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+    register-with-eureka: true # 默认为true 注册给eureka中
+    fetch-registry: true # 默认备份
+    registry-fetch-interval-seconds: 5 # 备份间隔时间
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 心跳时间
+    lease-expiration-duration-in-seconds: 15 # 过期时间
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Vue对象的html模板-->
+
+    <div id="app">
+        <ul>
+            <li v-for="(val,key,index) in liuyan" :key="index">{{index+1}}.{{key}}:{{ val }}</li>
+        </ul>
+        <hr>
+        <ul>
+            <li v-if="user.gender==='女' " v-for="(user, index) in users" :key="index">{{index+1}}.{{user.name}}-{{user.gender}}-{{user.age}}</li>
+        </ul>
+        <hr>
+        <input type="checkbox" value="ios" v-model="language">ios<br>
+        <input type="checkbox" value="java" v-model="language">java<br>
+        <input type="checkbox" value="php" v-model="language">php<br>
+        您选择了：{{language.join(",")}}
+        <hr>
+<!--        双向绑定 v-model：数据模型-->
+        <input type="text" v-model="num" @keyup.alt.67="submit">
+<!--        定义一个事件 v-on:时间名=js表达式 也可以是方法名-->
+        <input type="button" value="点我(右击)" @contextmenu.prevent="icr">
+        <!--花括号：js表达式-->
+        <h1>大家好，我是{{name}},有{{sum()}}位顾客</h1>
+        <!--        常用-->
+        <h1>大家好，我是<span v-text="name">刘德华</span>,有{{sum()}}位顾客</h1>
+        <!--        容易出现脚本入侵-->
+        <h1>大家好，我是<span v-html="name">压缩</span>,有{{sum()}}位顾客</h1>
+    </div>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        //初始化一个vue实例
+        const app=new Vue({
+            el:"#app",//element的缩写 选择器
+            data: {    //定义数据模型
+                name:"<span style='color: red'>刘德华</span>",
+                num:100,
+                language:[],
+                users:[
+                    {name:'柳岩', gender:'女', age: 21},
+                    {name:'峰哥', gender:'男', age: 18},
+                    {name:'范冰冰', gender:'女', age: 24},
+                    {name:'刘亦菲', gender:'女', age: 18},
+                    {name:'古力娜扎', gender:'女', age: 25}
+                ],
+                liuyan:{name:'柳岩', gender:'女', age: 21}
+            },
+            methods:{
+                submit(){
+                    console.log("已提交!")
+                },
+
+                sum(){
+                    return this.num+100;
+                },
+                icr(){
+                    console.log(this)
+                    this.num++;
+                }
+            },
+
+            created() {
+                //ajax
+                this.num=10000;
+            }
+        })
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

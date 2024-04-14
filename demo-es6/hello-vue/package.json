@@ -1,0 +1,17 @@
+{
+  "name": "hello-vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.6.14",
+    "vue-route": "^1.5.1",
+    "vue-router": "^3.5.2"
+  }
+}

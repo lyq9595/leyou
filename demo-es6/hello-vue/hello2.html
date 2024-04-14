@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <style>
+        .active{
+
+        }
+    </style>
+<body>
+    <div id="app">
+        <input type="text" v-model="search">
+        <hr>
+        <div>{{birth()}}</div>
+        <hr>
+        <input type="text" v-model="store">
+        <input type="button" v-bind:class="{active:store>0} " value="加入购物车">
+        <hr>
+        <input type="button" v-bind:value="value" @click="random=Math.random()">{{ random }} <br/>
+        <span v-if="random > 0.75">大于0.75</span>
+        <span v-else-if="random > 0.5">大于0.5</span>
+        <span v-else-if="random > 0.25">大于0.25</span>
+        <span v-else>大于0</span><br>
+
+        <hr>
+        <input type="button" value="点我" @click="show=!show"> <br/>
+        <span v-if="show">if看到了我是true</span><br><!-- 常用-->
+        <span v-show="show">show看到了我是true</span>
+    </div>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        const app=new Vue({
+            el:"#app",
+            data:{
+                show:false,
+                random:0,
+                value:"点我",
+                store:0,
+                birthday:1529032123201, // 毫秒值
+                search:""
+            },
+            computed:{//计算属性，里面也是定义方法，但是这些方法必须有返回值，计算属性可以像数据模型一样使用
+              birth1() {
+                  const date=new Date(this.birthday);
+                  return date.getFullYear()+"年"+new Date().getMonth()+"月"+new Date().getDay()+"日"
+
+              }
+            },
+            watch:{
+              search(newVal1,oldVal2){
+                  //发送异步请求到后台接口
+                  console.log(newVal1,oldVal2);
+              }
+            },
+            methods: {
+                birth(){
+                    return this.birth1
+                }
+            },
+
+
+
+
+        })
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

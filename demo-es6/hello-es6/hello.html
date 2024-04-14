@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        for(let i=0;i<5;i++){
+            console.log(i);
+        }
+        // console.log("我再循环外："+i);
+
+
+        function f1(a, b=2) {
+            // b=b||1;
+            console.log(a/b);
+        }
+
+        let f2= i => console.log(i);
+        let f3= (i,j) =>{
+            const z=i+j;
+            console.log(z);
+        }
+
+        f1(10,1);
+        f2(100);
+        f3(100,100);
+
+        const person={
+            name:"zhangsan",
+            eat1:function (food) {
+                console.log(this.name+"吃了"+food);
+            },
+            eat3:food=> console.log(person.name+"吃了"+food),
+            eat2(food)
+            {
+                console.log(this.name+"吃了"+food);
+            }
+        }
+        person.eat1("鸡蛋");
+        person.eat2("面条");
+        person.eat3("苹果");
+
+        const p={
+            name:"李四",
+            age:30
+        }
+        const fun3=pp=>console.log(pp.name);
+        const fun4= ({name})=>console.log(name);
+        fun3(p);
+        fun4(p);
+
+        let arr=[10,20,30];
+        const brr=arr.map(a=>a*10)
+        console.log(brr)
+
+        let number = arr.reduce((a, b)=> a+b);
+        let number2 = arr.reduce((a, b)=> a+b,100);
+        console.log(number)
+        console.log(number2)
+
+        let p2={name:"jcak",
+                age:21,
+                sex:1
+        }
+        let p3={xxx:"yyy"}
+        console.log(Object.keys(p2))
+        console.log(Object.values(p2))
+        console.log(Object.entries(p2))
+        console.log(Object.assign(p2,p3))
+
+
+        console.log(arr.find(a=>a===30))
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

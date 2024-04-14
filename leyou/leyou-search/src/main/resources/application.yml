@@ -1,0 +1,42 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: search-service
+  datasource:
+    url: jdbc:mysql:///leyou
+    username: root
+    password: 550798
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 192.168.20.252:9300
+  jackson:
+    default-property-inclusion: non_null # 序列化时把null字段过滤掉
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+      registry-fetch-interval-seconds: 10 # 每10s拉取一次微服务
+  instance:
+    lease-renewal-interval-in-seconds:  5
+    lease-expiration-duration-in-seconds: 15
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

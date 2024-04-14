@@ -1,0 +1,33 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: sms-service
+  rabbitmq:
+    host: 192.168.20.252
+    username: leyou
+    password: 123456
+    virtual-host: /leyou
+
+leyou:
+  sms:
+    signName: 【乐优商城】 # 签名名称
+    verifyCodeTemplate: 欢迎注册乐优商城，您的验证码为： # 模板名称
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
