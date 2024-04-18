@@ -148,11 +148,11 @@ npm run dev # 启动项目
 知识付费项目具体介绍可以看本仓库项目根目录下的网创项目介绍.pdf文件或者点击下方链接
 
 【腾讯文档】网创项目介绍F.pdf
-
-https://docs.qq.com/pdf/DTnBCU2RaZWNpVFRY
-
+https://docs.qq.com/pdf/DTmlPWnpoT3VpcldH
 
 联系方式微信：**xl110387**
+
+**用浏览器扫码打开**
 
 ![co](https://lyqblog.oss-cn-beijing.aliyuncs.com/icon.png)
 
